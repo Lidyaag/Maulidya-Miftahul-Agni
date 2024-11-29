@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            button1 = new Button();
             button2 = new Button();
             button3 = new Button();
+            textBox1 = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -45,16 +46,6 @@
             dataGridView1.Size = new Size(864, 445);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(34, 52);
-            button1.Name = "button1";
-            button1.Size = new Size(498, 41);
-            button1.TabIndex = 1;
-            button1.Text = "Cari...";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -73,28 +64,49 @@
             button3.TabIndex = 3;
             button3.Text = "Hapus Data";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(45, 52);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(498, 31);
+            textBox1.TabIndex = 4;
+            textBox1.TextChanged += textBox1_TextChanged_1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(45, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(84, 25);
+            label1.TabIndex = 5;
+            label1.Text = "Cari Data";
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(931, 631);
+            Controls.Add(label1);
+            Controls.Add(textBox1);
             Controls.Add(button3);
             Controls.Add(button2);
-            Controls.Add(button1);
             Controls.Add(dataGridView1);
             Name = "Form2";
             Text = "Form2";
             Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private DataGridView dataGridView1;
-        private Button button1;
         private Button button2;
         private Button button3;
+        private TextBox textBox1;
+        private Label label1;
     }
 }

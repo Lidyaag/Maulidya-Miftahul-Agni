@@ -91,24 +91,25 @@ namespace ProjectUjian
 
         private void btnsubmit_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
-            this.Hide();
-            form2.ShowDialog();
-            this.Show();
+
 
             try
             {
                 conn = konek.Getconn();
-                cmd = new SqlCommand("INSERT INTO Ujian (Tanggal,Pemasukan,DeskripsiPemasukan,Pengeluaran,DeskripsiPengeluaran) VALUES (@Tanggal,@Pemasukan,@DeskripsiPemasukan,@Pengeluaran,@DeskripsiPengeluaran)", conn);
+                cmd = new SqlCommand("INSERT INTO Pemasukan (Pemasukan,DeskripsiPemasukan,Pengeluaran,DeskripsikanPengeluaran) VALUES (@Pemasukan,@DeskripsiPemasukan,@Pengeluaran,@DeskripsikanPengeluaran)", conn);
                 conn.Open();
-                cmd.Parameters.AddWithValue("@Tanggal", txttanggal.Text.Trim());
+                //cmd.Parameters.AddWithValue("@Tanggal", txttanggal.Text.Trim());
                 cmd.Parameters.AddWithValue("@Pemasukan", txtpemasukan.Text.Trim());
                 cmd.Parameters.AddWithValue("@DeskripsiPemasukan", txtdesk1.Text.Trim());
                 cmd.Parameters.AddWithValue("@Pengeluaran", txtpengeluaran.Text.Trim());
-                cmd.Parameters.AddWithValue("@DeskripsiPengeluaran", txtdeks2.Text.Trim());
+                cmd.Parameters.AddWithValue("@DeskripsikanPengeluaran", txtdeks2.Text.Trim());
 
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Data Berhasil Ditambahkan");
+                MessageBox.Show("Data Berhasil Ditambahkan", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Form2 form2 = new Form2();
+                this.Hide();
+                form2.ShowDialog();
+                this.Close();
             }
             catch (Exception ex)
             {
